@@ -1,5 +1,9 @@
 # Run simulation
 
+SOURCES += ../src/reg_8bit_generalpurpose.vhd
+SOURCES += ../src/reg_16bit_updownload.vhd
+SOURCES += ../src/reg_16bit_xfer.vhd
+SOURCES += ../src/alu.vhd
 SOURCES += ../src/cpu.vhd
 SOURCES += ../src/pipeline_roms.vhd
 SOURCES += ../src/ram.vhd
@@ -37,7 +41,7 @@ sim: $(WAVE)
 $(WAVE): $(SOURCES) $(SIM_SOURCES)
 	ghdl -i --std=08 $(SOURCES) $(SIM_SOURCES)
 	ghdl -m --std=08 -frelaxed $(TB)
-	ghdl -r --std=08 -frelaxed $(TB) --wave=$(WAVE) --stop-time=10us --max-stack-alloc=16384
+	ghdl -r --std=08 -frelaxed $(TB) --wave=$(WAVE) --stop-time=1us --max-stack-alloc=16384
 
 
 ################################################

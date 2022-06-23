@@ -1,32 +1,109 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Thu Jun 23 12:18:05 2022
+[*] Thu Jun 23 15:21:28 2022
 [*]
 [dumpfile] "/home/mike/git/MJoergen/SharmanCPU/sim/tb_system.ghw"
-[dumpfile_mtime] "Thu Jun 23 12:17:27 2022"
-[dumpfile_size] 6283697
+[dumpfile_mtime] "Thu Jun 23 15:20:23 2022"
+[dumpfile_size] 6282414
 [savefile] "/home/mike/git/MJoergen/SharmanCPU/sim/tb_system.gtkw"
 [timestart] 0
 [size] 1387 823
-[pos] -134 -176
-*-31.308548 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-27.986620 126000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.tb_system.
 [treeopen] top.tb_system.i_system.
-[sst_width] 249
+[treeopen] top.tb_system.i_system.i_cpu.
+[treeopen] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.
+[sst_width] 410
 [signals_width] 339
 [sst_expanded] 1
-[sst_vpaned_height] 221
+[sst_vpaned_height] 402
+@800200
+-system
 @28
 top.tb_system.i_system.clk_i
 top.tb_system.i_system.rst_i
 @22
 #{top.tb_system.i_system.addr[15:0]} top.tb_system.i_system.addr[15] top.tb_system.i_system.addr[14] top.tb_system.i_system.addr[13] top.tb_system.i_system.addr[12] top.tb_system.i_system.addr[11] top.tb_system.i_system.addr[10] top.tb_system.i_system.addr[9] top.tb_system.i_system.addr[8] top.tb_system.i_system.addr[7] top.tb_system.i_system.addr[6] top.tb_system.i_system.addr[5] top.tb_system.i_system.addr[4] top.tb_system.i_system.addr[3] top.tb_system.i_system.addr[2] top.tb_system.i_system.addr[1] top.tb_system.i_system.addr[0]
-@23
 #{top.tb_system.i_system.rd_data[7:0]} top.tb_system.i_system.rd_data[7] top.tb_system.i_system.rd_data[6] top.tb_system.i_system.rd_data[5] top.tb_system.i_system.rd_data[4] top.tb_system.i_system.rd_data[3] top.tb_system.i_system.rd_data[2] top.tb_system.i_system.rd_data[1] top.tb_system.i_system.rd_data[0]
 @28
 top.tb_system.i_system.wr_en
 @22
 #{top.tb_system.i_system.wr_data[7:0]} top.tb_system.i_system.wr_data[7] top.tb_system.i_system.wr_data[6] top.tb_system.i_system.wr_data[5] top.tb_system.i_system.wr_data[4] top.tb_system.i_system.wr_data[3] top.tb_system.i_system.wr_data[2] top.tb_system.i_system.wr_data[1] top.tb_system.i_system.wr_data[0]
+@1000200
+-system
+@800200
+-cpu
+@28
+top.tb_system.i_system.i_cpu.clk_i
+top.tb_system.i_system.i_cpu.rst_i
+top.tb_system.i_system.i_cpu.wr_en_o
+@22
+#{top.tb_system.i_system.i_cpu.addr_o[15:0]} top.tb_system.i_system.i_cpu.addr_o[15] top.tb_system.i_system.i_cpu.addr_o[14] top.tb_system.i_system.i_cpu.addr_o[13] top.tb_system.i_system.i_cpu.addr_o[12] top.tb_system.i_system.i_cpu.addr_o[11] top.tb_system.i_system.i_cpu.addr_o[10] top.tb_system.i_system.i_cpu.addr_o[9] top.tb_system.i_system.i_cpu.addr_o[8] top.tb_system.i_system.i_cpu.addr_o[7] top.tb_system.i_system.i_cpu.addr_o[6] top.tb_system.i_system.i_cpu.addr_o[5] top.tb_system.i_system.i_cpu.addr_o[4] top.tb_system.i_system.i_cpu.addr_o[3] top.tb_system.i_system.i_cpu.addr_o[2] top.tb_system.i_system.i_cpu.addr_o[1] top.tb_system.i_system.i_cpu.addr_o[0]
+#{top.tb_system.i_system.i_cpu.wr_data_o[7:0]} top.tb_system.i_system.i_cpu.wr_data_o[7] top.tb_system.i_system.i_cpu.wr_data_o[6] top.tb_system.i_system.i_cpu.wr_data_o[5] top.tb_system.i_system.i_cpu.wr_data_o[4] top.tb_system.i_system.i_cpu.wr_data_o[3] top.tb_system.i_system.i_cpu.wr_data_o[2] top.tb_system.i_system.i_cpu.wr_data_o[1] top.tb_system.i_system.i_cpu.wr_data_o[0]
+#{top.tb_system.i_system.i_cpu.rd_data_i[7:0]} top.tb_system.i_system.i_cpu.rd_data_i[7] top.tb_system.i_system.i_cpu.rd_data_i[6] top.tb_system.i_system.i_cpu.rd_data_i[5] top.tb_system.i_system.i_cpu.rd_data_i[4] top.tb_system.i_system.i_cpu.rd_data_i[3] top.tb_system.i_system.i_cpu.rd_data_i[2] top.tb_system.i_system.i_cpu.rd_data_i[1] top.tb_system.i_system.i_cpu.rd_data_i[0]
+#{top.tb_system.i_system.i_cpu.pipe_rom_addr[14:0]} top.tb_system.i_system.i_cpu.pipe_rom_addr[14] top.tb_system.i_system.i_cpu.pipe_rom_addr[13] top.tb_system.i_system.i_cpu.pipe_rom_addr[12] top.tb_system.i_system.i_cpu.pipe_rom_addr[11] top.tb_system.i_system.i_cpu.pipe_rom_addr[10] top.tb_system.i_system.i_cpu.pipe_rom_addr[9] top.tb_system.i_system.i_cpu.pipe_rom_addr[8] top.tb_system.i_system.i_cpu.pipe_rom_addr[7] top.tb_system.i_system.i_cpu.pipe_rom_addr[6] top.tb_system.i_system.i_cpu.pipe_rom_addr[5] top.tb_system.i_system.i_cpu.pipe_rom_addr[4] top.tb_system.i_system.i_cpu.pipe_rom_addr[3] top.tb_system.i_system.i_cpu.pipe_rom_addr[2] top.tb_system.i_system.i_cpu.pipe_rom_addr[1] top.tb_system.i_system.i_cpu.pipe_rom_addr[0]
+#{top.tb_system.i_system.i_cpu.flags[6:0]} top.tb_system.i_system.i_cpu.flags[6] top.tb_system.i_system.i_cpu.flags[5] top.tb_system.i_system.i_cpu.flags[4] top.tb_system.i_system.i_cpu.flags[3] top.tb_system.i_system.i_cpu.flags[2] top.tb_system.i_system.i_cpu.flags[1] top.tb_system.i_system.i_cpu.flags[0]
+@28
+#{top.tb_system.i_system.i_cpu.addrsel[2:0]} top.tb_system.i_system.i_cpu.addrsel[2] top.tb_system.i_system.i_cpu.addrsel[1] top.tb_system.i_system.i_cpu.addrsel[0]
+@22
+#{top.tb_system.i_system.i_cpu.stage1[15:0]} top.tb_system.i_system.i_cpu.stage1[15] top.tb_system.i_system.i_cpu.stage1[14] top.tb_system.i_system.i_cpu.stage1[13] top.tb_system.i_system.i_cpu.stage1[12] top.tb_system.i_system.i_cpu.stage1[11] top.tb_system.i_system.i_cpu.stage1[10] top.tb_system.i_system.i_cpu.stage1[9] top.tb_system.i_system.i_cpu.stage1[8] top.tb_system.i_system.i_cpu.stage1[7] top.tb_system.i_system.i_cpu.stage1[6] top.tb_system.i_system.i_cpu.stage1[5] top.tb_system.i_system.i_cpu.stage1[4] top.tb_system.i_system.i_cpu.stage1[3] top.tb_system.i_system.i_cpu.stage1[2] top.tb_system.i_system.i_cpu.stage1[1] top.tb_system.i_system.i_cpu.stage1[0]
+@c00023
+#{top.tb_system.i_system.i_cpu.stage2[15:0]} top.tb_system.i_system.i_cpu.stage2[15] top.tb_system.i_system.i_cpu.stage2[14] top.tb_system.i_system.i_cpu.stage2[13] top.tb_system.i_system.i_cpu.stage2[12] top.tb_system.i_system.i_cpu.stage2[11] top.tb_system.i_system.i_cpu.stage2[10] top.tb_system.i_system.i_cpu.stage2[9] top.tb_system.i_system.i_cpu.stage2[8] top.tb_system.i_system.i_cpu.stage2[7] top.tb_system.i_system.i_cpu.stage2[6] top.tb_system.i_system.i_cpu.stage2[5] top.tb_system.i_system.i_cpu.stage2[4] top.tb_system.i_system.i_cpu.stage2[3] top.tb_system.i_system.i_cpu.stage2[2] top.tb_system.i_system.i_cpu.stage2[1] top.tb_system.i_system.i_cpu.stage2[0]
+@28
+top.tb_system.i_system.i_cpu.stage2[15]
+top.tb_system.i_system.i_cpu.stage2[14]
+top.tb_system.i_system.i_cpu.stage2[13]
+top.tb_system.i_system.i_cpu.stage2[12]
+top.tb_system.i_system.i_cpu.stage2[11]
+top.tb_system.i_system.i_cpu.stage2[10]
+top.tb_system.i_system.i_cpu.stage2[9]
+top.tb_system.i_system.i_cpu.stage2[8]
+top.tb_system.i_system.i_cpu.stage2[7]
+top.tb_system.i_system.i_cpu.stage2[6]
+top.tb_system.i_system.i_cpu.stage2[5]
+top.tb_system.i_system.i_cpu.stage2[4]
+top.tb_system.i_system.i_cpu.stage2[3]
+top.tb_system.i_system.i_cpu.stage2[2]
+top.tb_system.i_system.i_cpu.stage2[1]
+top.tb_system.i_system.i_cpu.stage2[0]
+@1401201
+-group_end
+@22
+#{top.tb_system.i_system.i_cpu.instr[7:0]} top.tb_system.i_system.i_cpu.instr[7] top.tb_system.i_system.i_cpu.instr[6] top.tb_system.i_system.i_cpu.instr[5] top.tb_system.i_system.i_cpu.instr[4] top.tb_system.i_system.i_cpu.instr[3] top.tb_system.i_system.i_cpu.instr[2] top.tb_system.i_system.i_cpu.instr[1] top.tb_system.i_system.i_cpu.instr[0]
+@1000200
+-cpu
+@28
+top.tb_system.i_system.i_cpu.control_pcra0_inc
+top.tb_system.i_system.i_cpu.control_pcra1_inc
+@c00028
+#{top.tb_system.i_system.i_cpu.inc_pcra[1:0]} top.tb_system.i_system.i_cpu.inc_pcra[1] top.tb_system.i_system.i_cpu.inc_pcra[0]
+@28
+top.tb_system.i_system.i_cpu.inc_pcra[1]
+top.tb_system.i_system.i_cpu.inc_pcra[0]
+@1401200
+-group_end
+@c00022
+#{top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[15:0]} top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[15] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[14] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[13] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[12] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[11] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[10] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[9] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[8] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[7] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[6] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[5] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[4] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[3] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[2] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[1] top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[0]
+@28
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[15]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[14]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[13]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[12]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[11]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[10]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[9]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[8]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[7]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[6]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[5]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[4]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[3]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[2]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[1]
+top.tb_system.i_system.i_cpu.i_reg_16bit_updownload_pcra0.val[0]
+@1401200
+-group_end
 [pattern_trace] 1
 [pattern_trace] 0

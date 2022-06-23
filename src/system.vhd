@@ -23,12 +23,12 @@ begin
 
    i_cpu : entity work.cpu
       port map (
-         clk_i   => clk_i,
-         rst_i   => rst_i,
-         addr_o  => addr,
-         data_o  => wr_data,
-         data_i  => rd_data,
-         rdwr_o  => wr_en
+         clk_i     => clk_i,
+         rst_i     => rst_i,
+         addr_o    => addr,
+         wr_data_o => wr_data,
+         rd_data_i => rd_data,
+         wr_en_o   => wr_en
       ); -- i_cpu
 
 
@@ -38,6 +38,7 @@ begin
 
    i_ram : entity work.ram
       generic map (
+         G_INIT_FILE => "prog.bin",
          G_ADDR_SIZE => 16,
          G_DATA_SIZE => 8
       )

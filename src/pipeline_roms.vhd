@@ -17,7 +17,7 @@ begin
    -- Pipeline ROMS
    i_pipe1_rom1 : entity work.ram
       generic map (
-         G_INIT_FILE => "Pipe1A.bin",
+         G_INIT_FILE => "../roms/Pipe1A.bin",
          G_ADDR_SIZE => 15,
          G_DATA_SIZE => 8
       )
@@ -29,7 +29,7 @@ begin
 
    i_pipe1_rom2 : entity work.ram
       generic map (
-         G_INIT_FILE => "Pipe1B.bin",
+         G_INIT_FILE => "../roms/Pipe1B.bin",
          G_ADDR_SIZE => 15,
          G_DATA_SIZE => 8
       )
@@ -41,7 +41,7 @@ begin
 
    i_pipe2_rom1 : entity work.ram
       generic map (
-         G_INIT_FILE => "Pipe2A.bin",
+         G_INIT_FILE => "../roms/Pipe2A.bin",
          G_ADDR_SIZE => 15,
          G_DATA_SIZE => 8
       )
@@ -53,7 +53,7 @@ begin
 
    i_pipe2_rom2 : entity work.ram
       generic map (
-         G_INIT_FILE => "Pipe2B.bin",
+         G_INIT_FILE => "../roms/Pipe2B.bin",
          G_ADDR_SIZE => 15,
          G_DATA_SIZE => 8
       )

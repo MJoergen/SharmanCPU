@@ -1,0 +1,32 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Thu Jun 23 12:18:05 2022
+[*]
+[dumpfile] "/home/mike/git/MJoergen/SharmanCPU/sim/tb_system.ghw"
+[dumpfile_mtime] "Thu Jun 23 12:17:27 2022"
+[dumpfile_size] 6283697
+[savefile] "/home/mike/git/MJoergen/SharmanCPU/sim/tb_system.gtkw"
+[timestart] 0
+[size] 1387 823
+[pos] -134 -176
+*-31.308548 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.tb_system.
+[treeopen] top.tb_system.i_system.
+[sst_width] 249
+[signals_width] 339
+[sst_expanded] 1
+[sst_vpaned_height] 221
+@28
+top.tb_system.i_system.clk_i
+top.tb_system.i_system.rst_i
+@22
+#{top.tb_system.i_system.addr[15:0]} top.tb_system.i_system.addr[15] top.tb_system.i_system.addr[14] top.tb_system.i_system.addr[13] top.tb_system.i_system.addr[12] top.tb_system.i_system.addr[11] top.tb_system.i_system.addr[10] top.tb_system.i_system.addr[9] top.tb_system.i_system.addr[8] top.tb_system.i_system.addr[7] top.tb_system.i_system.addr[6] top.tb_system.i_system.addr[5] top.tb_system.i_system.addr[4] top.tb_system.i_system.addr[3] top.tb_system.i_system.addr[2] top.tb_system.i_system.addr[1] top.tb_system.i_system.addr[0]
+@23
+#{top.tb_system.i_system.rd_data[7:0]} top.tb_system.i_system.rd_data[7] top.tb_system.i_system.rd_data[6] top.tb_system.i_system.rd_data[5] top.tb_system.i_system.rd_data[4] top.tb_system.i_system.rd_data[3] top.tb_system.i_system.rd_data[2] top.tb_system.i_system.rd_data[1] top.tb_system.i_system.rd_data[0]
+@28
+top.tb_system.i_system.wr_en
+@22
+#{top.tb_system.i_system.wr_data[7:0]} top.tb_system.i_system.wr_data[7] top.tb_system.i_system.wr_data[6] top.tb_system.i_system.wr_data[5] top.tb_system.i_system.wr_data[4] top.tb_system.i_system.wr_data[3] top.tb_system.i_system.wr_data[2] top.tb_system.i_system.wr_data[1] top.tb_system.i_system.wr_data[0]
+[pattern_trace] 1
+[pattern_trace] 0

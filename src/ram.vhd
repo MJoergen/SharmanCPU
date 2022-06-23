@@ -25,16 +25,17 @@ architecture synthesis of ram is
 
    -- This reads the ROM contents from a text file
    impure function InitRamFromFile(RamFileName : in string) return mem_t is
-      FILE RamFile : text;
-      variable RamFileLine : line;
+      type char_file_t is file of character;
+      FILE char_file : char_file_t;
+      variable char_v : character;
       variable ram : mem_t := (others => (others => '0'));
    begin
       if RamFileName /= "" then
-         file_open(RamFile, RamFileName, read_mode);
+         file_open(char_file, RamFileName, read_mode);
          for i in mem_t'range loop
-            readline (RamFile, RamFileLine);
-            read (RamFileLine, ram(i));
-            if endfile(RamFile) then
+            read(char_file, char_v);
+            ram(i) := to_stdlogicvector(character'pos(char_v), 8);
+            if endfile(char_file) then
                return ram;
             end if;
          end loop;

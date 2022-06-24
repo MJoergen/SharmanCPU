@@ -157,7 +157,7 @@ begin
    i_reg_16bit_updownload_pcra0 : entity work.reg_16bit_updownload
       port map (
          clk_i    => clk_i,
-         clear_i  => flags(C_FLAGS_RESET),
+         clear_i  => not flags(C_FLAGS_RESET),
          load_i   => control_pcra0_loadxfer,
          inc_i    => control_pcra0_inc,
          dec_i    => control_pcra0_dec,
@@ -168,7 +168,7 @@ begin
    i_reg_16bit_updownload_pcra1 : entity work.reg_16bit_updownload
       port map (
          clk_i    => clk_i,
-         clear_i  => flags(C_FLAGS_RESET),
+         clear_i  => not flags(C_FLAGS_RESET),
          load_i   => control_pcra1_loadxfer,
          inc_i    => control_pcra1_inc,
          dec_i    => control_pcra1_dec,
@@ -179,7 +179,7 @@ begin
    i_reg_16bit_updownload_sp : entity work.reg_16bit_updownload
       port map (
          clk_i    => clk_i,
-         clear_i  => flags(C_FLAGS_RESET),
+         clear_i  => not flags(C_FLAGS_RESET),
          load_i   => control_sp_loadxfer,
          inc_i    => control_sp_inc,
          dec_i    => control_sp_dec,
@@ -190,7 +190,7 @@ begin
    i_reg_16bit_updownload_si : entity work.reg_16bit_updownload
       port map (
          clk_i    => clk_i,
-         clear_i  => flags(C_FLAGS_RESET),
+         clear_i  => not flags(C_FLAGS_RESET),
          load_i   => control_si_loadxfer,
          inc_i    => control_si_inc,
          dec_i    => control_si_dec,
@@ -201,7 +201,7 @@ begin
    i_reg_16bit_updownload_di : entity work.reg_16bit_updownload
       port map (
          clk_i    => clk_i,
-         clear_i  => flags(C_FLAGS_RESET),
+         clear_i  => not flags(C_FLAGS_RESET),
          load_i   => control_di_loadxfer,
          inc_i    => control_di_inc,
          dec_i    => control_di_dec,
@@ -379,7 +379,7 @@ begin
 
    inc_pcra <= stage2(R_PIPE2_BUSREQUEST) & flags(C_FLAGS_PCRA_FLIP);
    flags(C_FLAGS_PCRA_FLIP) <= stage2(R_PIPE2_PCRA_FLIP);
-   flags(C_FLAGS_RESET)     <= rst_i;
+   flags(C_FLAGS_RESET)     <= not rst_i;
 
    mainbus_assert <= stage2(R_PIPE2_MAIN_ASSERT);
    mainbus_load   <= stage2(R_PIPE2_MAIN_LOAD);

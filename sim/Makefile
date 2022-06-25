@@ -3,9 +3,11 @@
 SOURCES += ../src/reg_8bit_generalpurpose.vhd
 SOURCES += ../src/reg_16bit_updownload.vhd
 SOURCES += ../src/reg_16bit_xfer.vhd
+SOURCES += ../src/pipeline_stage0.vhd
+SOURCES += ../src/pipeline_stage1.vhd
+SOURCES += ../src/pipeline_stage2.vhd
 SOURCES += ../src/alu.vhd
 SOURCES += ../src/cpu.vhd
-SOURCES += ../src/pipeline_roms.vhd
 SOURCES += ../src/ram.vhd
 SOURCES += ../src/system.vhd
 
@@ -52,5 +54,4 @@ $(WAVE): $(SOURCES) $(SIM_SOURCES)
 clean:
 	rm -rf work-obj08.cf
 	rm -rf $(WAVE)
-	rm -rf $(ROM)
 

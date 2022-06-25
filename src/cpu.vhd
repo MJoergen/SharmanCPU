@@ -78,7 +78,6 @@ architecture synthesis of cpu is
    signal control_dev14_load        : std_logic;   -- 14
    signal control_membridge_load    : std_logic;   -- 15
 
-   signal inc_pcra                  : std_logic_vector(1 downto 0);
    signal control_pcra0_inc         : std_logic;
    signal control_pcra1_inc         : std_logic;
 
@@ -134,19 +133,13 @@ architecture synthesis of cpu is
    constant R_PIPE2_PCRA_FLIP   :  natural := 14;
    constant R_PIPE2_BREAK       :  natural := 15;
 
-   signal pipe_rom_addr             : std_logic_vector(14 downto 0);
-   signal stage0                    : std_logic_vector(15 downto 0);
-   signal stage1                    : std_logic_vector(15 downto 0);
-   signal stage2                    : std_logic_vector(15 downto 0);
+   signal pipe0out_pipeline         : std_logic_vector(7 downto 0);
+   signal pipe1out_pipeline         : std_logic_vector(7 downto 0);
+   signal pipe2out_pipeline         : std_logic_vector(7 downto 0);
+   signal pipe0out_inc_pcra         : std_logic_vector(1 downto 0);
 
-   signal instr                     : std_logic_vector(7 downto 0);
-
---   signal alu_lhs                   : std_logic_vector(7 downto 0);
---   signal alu_rhs                   : std_logic_vector(7 downto 0);
---   signal alu_oper                  : std_logic_vector(1 downto 0);
---   signal alu_flags_in              : std_logic_vector(6 downto 0);
---   signal alu_result                : std_logic_vector(7 downto 0);
---   signal alu_flags_out             : std_logic_vector(6 downto 0);
+   signal pipe1out_control          : std_logic_vector(15 downto 0);
+   signal pipe2out_control          : std_logic_vector(15 downto 0);
 
 begin
 
@@ -344,8 +337,8 @@ begin
    control_dev14_load       <= '1' when mainbus_load = "1110" else '0';
    control_membridge_load   <= '1' when mainbus_load = "1110" else '0';
 
-   control_pcra0_inc        <= '1' when inc_pcra = "00" else '0';
-   control_pcra1_inc        <= '1' when inc_pcra = "01" else '0';
+   control_pcra0_inc        <= '1' when pipe0out_inc_pcra = "00" else '0';
+   control_pcra1_inc        <= '1' when pipe0out_inc_pcra = "01" else '0';
 
    control_sp_inc           <= '1' when inc_spsidi = "01" else '0';
    control_si_inc           <= '1' when inc_spsidi = "10" else '0';
@@ -377,51 +370,52 @@ begin
    control_di_assertaddr    <= '1' when addrsel = "101" else '0';
    control_tx_assertaddr    <= '1' when addrsel = "110" else '0';
 
-   inc_pcra <= stage2(R_PIPE2_BUSREQUEST) & flags(C_FLAGS_PCRA_FLIP);
-   flags(C_FLAGS_PCRA_FLIP) <= stage2(R_PIPE2_PCRA_FLIP);
+   flags(C_FLAGS_PCRA_FLIP) <= pipe2out_control(R_PIPE2_PCRA_FLIP);
    flags(C_FLAGS_RESET)     <= not rst_i;
 
-   mainbus_assert <= stage2(R_PIPE2_MAIN_ASSERT);
-   mainbus_load   <= stage2(R_PIPE2_MAIN_LOAD);
-   inc_spsidi     <= stage2(R_PIPE2_INC_SPSIDI);
-   addrsel        <= stage2(R_PIPE2_ADDRSEL);
+   mainbus_assert <= pipe2out_control(R_PIPE2_MAIN_ASSERT);
+   mainbus_load   <= pipe2out_control(R_PIPE2_MAIN_LOAD);
+   inc_spsidi     <= pipe2out_control(R_PIPE2_INC_SPSIDI);
+   addrsel        <= pipe2out_control(R_PIPE2_ADDRSEL);
 
 
    ----------------------------------
-   -- Instantiate Pipeline ROMs
+   -- Instantiate pipeline stages
    ----------------------------------
 
-   pipe_rom_addr <= flags & instr;
-
-   i_pipeline_roms : entity work.pipeline_roms
+   i_pipeline_stage0 : entity work.pipeline_stage0
       port map (
-         clk_i    => clk_i,
-         addr_i   => pipe_rom_addr,
-         stage1_o => stage1,
-         stage2_o => stage2
-      );
+         clk_i            => clk_i,
+         memdata_i        => rd_data_i,
+         bus_request_i    => pipe2out_control(R_PIPE2_BUSREQUEST),
+         fetch_suppress_i => pipe1out_control(R_PIPE1_FETCH_SUPP),
+         pcra_flip_i      => flags(C_FLAGS_PCRA_FLIP),
+         pipeline_o       => pipe0out_pipeline,
+         inc_pcpra_o      => pipe0out_inc_pcra
+      ); -- i_pipeline_stage0
 
+   i_pipeline_stage1 : entity work.pipeline_stage1
+      port map (
+         clk_i         => clk_i,
+         bus_request_i => pipe2out_control(R_PIPE2_BUSREQUEST),
+         flags_i       => flags,
+         pipeline_i    => pipe0out_pipeline,
+         pipeline_o    => pipe1out_pipeline,
+         control_o     => pipe1out_control
+      ); -- i_pipeline_stage1
 
---   ----------------------------------
---   -- Instantiate ALU
---   ----------------------------------
---
---   i_alu : entity work.alu
---      port map (
---         clk_i       => clk_i,
---         lhs_i       => alu_lhs,
---         rhs_i       => alu_rhs,
---         oper_i      => alu_oper,
---         flags_in_i  => alu_flags_in,
---         result_o    => alu_result,
---         flags_out_o => alu_flags_out
---      ); -- i_alu
-
+   i_pipeline_stage2 : entity work.pipeline_stage2
+      port map (
+         clk_i         => clk_i,
+         flags_i       => flags,
+         pipeline_i    => pipe1out_pipeline,
+         pipeline_o    => pipe2out_pipeline,
+         control_o     => pipe2out_control
+      ); -- i_pipeline_stage2
 
 
    addr_o  <= bus_addr;
    wr_en_o <= '0';
-   instr   <= rd_data_i;
 
 end architecture synthesis;
 

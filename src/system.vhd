@@ -43,7 +43,7 @@ begin
          G_DATA_SIZE => 8
       )
       port map (
-         clk_i     => clk_i,
+         clk_i     => not clk_i,
          addr_i    => addr,
          wr_en_i   => wr_en,
          wr_data_i => wr_data,

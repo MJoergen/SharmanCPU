@@ -1,15 +1,15 @@
 [*]
-[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Fri Jun 24 09:30:20 2022
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sat Jun 25 19:40:43 2022
 [*]
-[dumpfile] "/home/mfj/git/PRIVATE/MJoergen/SharmanCPU/sim/tb_system.ghw"
-[dumpfile_mtime] "Fri Jun 24 09:26:39 2022"
-[dumpfile_size] 6288752
-[savefile] "/home/mfj/git/PRIVATE/MJoergen/SharmanCPU/sim/tb_system.gtkw"
+[dumpfile] "/home/mike/git/MJoergen/SharmanCPU/sim/tb_system.ghw"
+[dumpfile_mtime] "Sat Jun 25 19:39:56 2022"
+[dumpfile_size] 6287497
+[savefile] "/home/mike/git/MJoergen/SharmanCPU/sim/tb_system.gtkw"
 [timestart] 149700000
-[size] 1853 1138
-[pos] 347 34
-*-25.986620 248000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 1853 1009
+[pos] 2249 40
+*-25.986620 276600000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.tb_system.
 [treeopen] top.tb_system.i_system.
@@ -46,7 +46,21 @@ top.tb_system.i_system.wr_en
 #{top.tb_system.i_system.i_cpu.pipe2out_pipeline[7:0]} top.tb_system.i_system.i_cpu.pipe2out_pipeline[7] top.tb_system.i_system.i_cpu.pipe2out_pipeline[6] top.tb_system.i_system.i_cpu.pipe2out_pipeline[5] top.tb_system.i_system.i_cpu.pipe2out_pipeline[4] top.tb_system.i_system.i_cpu.pipe2out_pipeline[3] top.tb_system.i_system.i_cpu.pipe2out_pipeline[2] top.tb_system.i_system.i_cpu.pipe2out_pipeline[1] top.tb_system.i_system.i_cpu.pipe2out_pipeline[0]
 #{top.tb_system.i_system.i_cpu.pipe1out_control[15:0]} top.tb_system.i_system.i_cpu.pipe1out_control[15] top.tb_system.i_system.i_cpu.pipe1out_control[14] top.tb_system.i_system.i_cpu.pipe1out_control[13] top.tb_system.i_system.i_cpu.pipe1out_control[12] top.tb_system.i_system.i_cpu.pipe1out_control[11] top.tb_system.i_system.i_cpu.pipe1out_control[10] top.tb_system.i_system.i_cpu.pipe1out_control[9] top.tb_system.i_system.i_cpu.pipe1out_control[8] top.tb_system.i_system.i_cpu.pipe1out_control[7] top.tb_system.i_system.i_cpu.pipe1out_control[6] top.tb_system.i_system.i_cpu.pipe1out_control[5] top.tb_system.i_system.i_cpu.pipe1out_control[4] top.tb_system.i_system.i_cpu.pipe1out_control[3] top.tb_system.i_system.i_cpu.pipe1out_control[2] top.tb_system.i_system.i_cpu.pipe1out_control[1] top.tb_system.i_system.i_cpu.pipe1out_control[0]
 #{top.tb_system.i_system.i_cpu.pipe2out_control[15:0]} top.tb_system.i_system.i_cpu.pipe2out_control[15] top.tb_system.i_system.i_cpu.pipe2out_control[14] top.tb_system.i_system.i_cpu.pipe2out_control[13] top.tb_system.i_system.i_cpu.pipe2out_control[12] top.tb_system.i_system.i_cpu.pipe2out_control[11] top.tb_system.i_system.i_cpu.pipe2out_control[10] top.tb_system.i_system.i_cpu.pipe2out_control[9] top.tb_system.i_system.i_cpu.pipe2out_control[8] top.tb_system.i_system.i_cpu.pipe2out_control[7] top.tb_system.i_system.i_cpu.pipe2out_control[6] top.tb_system.i_system.i_cpu.pipe2out_control[5] top.tb_system.i_system.i_cpu.pipe2out_control[4] top.tb_system.i_system.i_cpu.pipe2out_control[3] top.tb_system.i_system.i_cpu.pipe2out_control[2] top.tb_system.i_system.i_cpu.pipe2out_control[1] top.tb_system.i_system.i_cpu.pipe2out_control[0]
+#{top.tb_system.i_system.i_cpu.bus_addr[15:0]} top.tb_system.i_system.i_cpu.bus_addr[15] top.tb_system.i_system.i_cpu.bus_addr[14] top.tb_system.i_system.i_cpu.bus_addr[13] top.tb_system.i_system.i_cpu.bus_addr[12] top.tb_system.i_system.i_cpu.bus_addr[11] top.tb_system.i_system.i_cpu.bus_addr[10] top.tb_system.i_system.i_cpu.bus_addr[9] top.tb_system.i_system.i_cpu.bus_addr[8] top.tb_system.i_system.i_cpu.bus_addr[7] top.tb_system.i_system.i_cpu.bus_addr[6] top.tb_system.i_system.i_cpu.bus_addr[5] top.tb_system.i_system.i_cpu.bus_addr[4] top.tb_system.i_system.i_cpu.bus_addr[3] top.tb_system.i_system.i_cpu.bus_addr[2] top.tb_system.i_system.i_cpu.bus_addr[1] top.tb_system.i_system.i_cpu.bus_addr[0]
+#{top.tb_system.i_system.i_cpu.bus_xfer[15:0]} top.tb_system.i_system.i_cpu.bus_xfer[15] top.tb_system.i_system.i_cpu.bus_xfer[14] top.tb_system.i_system.i_cpu.bus_xfer[13] top.tb_system.i_system.i_cpu.bus_xfer[12] top.tb_system.i_system.i_cpu.bus_xfer[11] top.tb_system.i_system.i_cpu.bus_xfer[10] top.tb_system.i_system.i_cpu.bus_xfer[9] top.tb_system.i_system.i_cpu.bus_xfer[8] top.tb_system.i_system.i_cpu.bus_xfer[7] top.tb_system.i_system.i_cpu.bus_xfer[6] top.tb_system.i_system.i_cpu.bus_xfer[5] top.tb_system.i_system.i_cpu.bus_xfer[4] top.tb_system.i_system.i_cpu.bus_xfer[3] top.tb_system.i_system.i_cpu.bus_xfer[2] top.tb_system.i_system.i_cpu.bus_xfer[1] top.tb_system.i_system.i_cpu.bus_xfer[0]
+#{top.tb_system.i_system.i_cpu.bus_main[7:0]} top.tb_system.i_system.i_cpu.bus_main[7] top.tb_system.i_system.i_cpu.bus_main[6] top.tb_system.i_system.i_cpu.bus_main[5] top.tb_system.i_system.i_cpu.bus_main[4] top.tb_system.i_system.i_cpu.bus_main[3] top.tb_system.i_system.i_cpu.bus_main[2] top.tb_system.i_system.i_cpu.bus_main[1] top.tb_system.i_system.i_cpu.bus_main[0]
+#{top.tb_system.i_system.i_cpu.bus_lhs[7:0]} top.tb_system.i_system.i_cpu.bus_lhs[7] top.tb_system.i_system.i_cpu.bus_lhs[6] top.tb_system.i_system.i_cpu.bus_lhs[5] top.tb_system.i_system.i_cpu.bus_lhs[4] top.tb_system.i_system.i_cpu.bus_lhs[3] top.tb_system.i_system.i_cpu.bus_lhs[2] top.tb_system.i_system.i_cpu.bus_lhs[1] top.tb_system.i_system.i_cpu.bus_lhs[0]
+#{top.tb_system.i_system.i_cpu.bus_rhs[7:0]} top.tb_system.i_system.i_cpu.bus_rhs[7] top.tb_system.i_system.i_cpu.bus_rhs[6] top.tb_system.i_system.i_cpu.bus_rhs[5] top.tb_system.i_system.i_cpu.bus_rhs[4] top.tb_system.i_system.i_cpu.bus_rhs[3] top.tb_system.i_system.i_cpu.bus_rhs[2] top.tb_system.i_system.i_cpu.bus_rhs[1] top.tb_system.i_system.i_cpu.bus_rhs[0]
 @1000200
 -cpu
+@28
+top.tb_system.i_system.i_cpu.control_tx_loadxfer
+top.tb_system.i_system.i_cpu.control_reg_th_load
+top.tb_system.i_system.i_cpu.control_reg_tl_load
+top.tb_system.i_system.i_cpu.control_pcra0_assertxfer
+top.tb_system.i_system.i_cpu.control_pcra1_assertxfer
+@22
+#{top.tb_system.i_system.i_cpu.mainbus_assert[3:0]} top.tb_system.i_system.i_cpu.mainbus_assert[3] top.tb_system.i_system.i_cpu.mainbus_assert[2] top.tb_system.i_system.i_cpu.mainbus_assert[1] top.tb_system.i_system.i_cpu.mainbus_assert[0]
+#{top.tb_system.i_system.i_cpu.mainbus_load[3:0]} top.tb_system.i_system.i_cpu.mainbus_load[3] top.tb_system.i_system.i_cpu.mainbus_load[2] top.tb_system.i_system.i_cpu.mainbus_load[1] top.tb_system.i_system.i_cpu.mainbus_load[0]
 [pattern_trace] 1
 [pattern_trace] 0

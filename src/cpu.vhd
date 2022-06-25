@@ -141,6 +141,10 @@ architecture synthesis of cpu is
    signal pipe1out_control          : std_logic_vector(15 downto 0);
    signal pipe2out_control          : std_logic_vector(15 downto 0);
 
+   signal lhs                       : std_logic_vector(1 downto 0);
+   signal rhs                       : std_logic_vector(1 downto 0);
+   signal aluop                     : std_logic_vector(3 downto 0);
+
 begin
 
    ----------------------------------
@@ -205,9 +209,9 @@ begin
    i_reg_16_tx : entity work.reg_16bit_xfer
       port map (
          clk_i            => clk_i,
-         load_main_high_i => control_di_loadxfer,
-         load_main_low_i  => control_di_loadxfer,
-         load_xfer_i      => control_di_loadxfer,
+         load_main_high_i => control_reg_th_load,
+         load_main_low_i  => control_reg_tl_load,
+         load_xfer_i      => control_tx_loadxfer,
          xfer_i           => bus_xfer,
          main_i           => bus_main,
          val_o            => register_tx
@@ -300,6 +304,30 @@ begin
       end if;
    end process p_bus_main;
 
+   p_bus_lhs : process (all)
+   begin
+      bus_lhs <= (others => 'U');
+      case lhs is
+         when "00"   => bus_lhs <= register_a;
+         when "01"   => bus_lhs <= register_b;
+         when "10"   => bus_lhs <= register_c;
+         when "11"   => bus_lhs <= register_d;
+         when others => bus_lhs <= (others => 'U');
+      end case;
+   end process p_bus_lhs;
+
+   p_bus_rhs : process (all)
+   begin
+      bus_rhs <= (others => 'U');
+      case rhs is
+         when "00"   => bus_rhs <= register_a;
+         when "01"   => bus_rhs <= register_b;
+         when "10"   => bus_rhs <= register_c;
+         when "11"   => bus_rhs <= register_d;
+         when others => bus_rhs <= (others => 'U');
+      end case;
+   end process p_bus_rhs;
+
 
    ----------------------------------
    -- Instantiate Bus Control Logic
@@ -319,7 +347,7 @@ begin
    control_dev12_assert     <= '1' when mainbus_assert = "1100" else '0';
    control_dev13_assert     <= '1' when mainbus_assert = "1101" else '0';
    control_dev14_assert     <= '1' when mainbus_assert = "1110" else '0';
-   control_membridge_assert <= '1' when mainbus_assert = "1110" else '0';
+   control_membridge_assert <= '1' when mainbus_assert = "1111" else '0';
 
    control_reg_a_load       <= '1' when mainbus_load = "0001" else '0';
    control_reg_b_load       <= '1' when mainbus_load = "0010" else '0';
@@ -335,7 +363,7 @@ begin
    control_dev12_load       <= '1' when mainbus_load = "1100" else '0';
    control_dev13_load       <= '1' when mainbus_load = "1101" else '0';
    control_dev14_load       <= '1' when mainbus_load = "1110" else '0';
-   control_membridge_load   <= '1' when mainbus_load = "1110" else '0';
+   control_membridge_load   <= '1' when mainbus_load = "1111" else '0';
 
    control_pcra0_inc        <= '1' when pipe0out_inc_pcra = "00" else '0';
    control_pcra1_inc        <= '1' when pipe0out_inc_pcra = "01" else '0';
@@ -377,6 +405,12 @@ begin
    mainbus_load   <= pipe2out_control(R_PIPE2_MAIN_LOAD);
    inc_spsidi     <= pipe2out_control(R_PIPE2_INC_SPSIDI);
    addrsel        <= pipe2out_control(R_PIPE2_ADDRSEL);
+
+   xfer_assert  <= pipe1out_control(R_PIPE1_XA);
+   xfer_loaddec <= pipe1out_control(R_PIPE1_XLD);
+   lhs   <= pipe1out_control(R_PIPE1_LHS);
+   rhs   <= pipe1out_control(R_PIPE1_RHS);
+   aluop <= pipe1out_control(R_PIPE1_ALUOP);
 
 
    ----------------------------------

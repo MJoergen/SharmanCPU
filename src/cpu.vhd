@@ -261,7 +261,7 @@ begin
 
    p_bus_xfer : process (all)
    begin
-      bus_xfer <= (others => 'U');
+      bus_xfer <= (others => '0');
       if    control_pcra0_assertxfer = '1' then bus_xfer <= register_pcra0;
       elsif control_pcra1_assertxfer = '1' then bus_xfer <= register_pcra1;
       elsif control_sp_assertxfer    = '1' then bus_xfer <= register_sp;
@@ -448,8 +448,13 @@ begin
       ); -- i_pipeline_stage2
 
 
-   addr_o  <= bus_addr;
-   wr_en_o <= '0';
+   ----------------------------------
+   -- Instantiate memory bridge
+   ----------------------------------
+
+   addr_o    <= bus_addr;
+   wr_data_o <= bus_main;
+   wr_en_o   <= control_membridge_load;
 
 end architecture synthesis;
 
